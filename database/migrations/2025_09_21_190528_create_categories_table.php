@@ -13,7 +13,19 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('created_by')
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
+
+            $table->foreignId('updated_by')
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
+
+            $table->string('name', 50)->unique();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

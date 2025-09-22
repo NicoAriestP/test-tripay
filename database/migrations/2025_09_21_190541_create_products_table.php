@@ -13,7 +13,29 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('created_by')
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
+
+            $table->foreignId('updated_by')
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
+
+            $table->foreignId('category_id')
+                ->nullable()
+                ->constrained('categories')
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
+
+            $table->string('name', 300);
+            $table->string('sku', 50)->unique();
+            $table->integer('price')->unsigned();
+            $table->string('reference', 300);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
