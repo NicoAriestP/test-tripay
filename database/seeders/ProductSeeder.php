@@ -14,8 +14,6 @@ class ProductSeeder extends Seeder
     {
         \App\Models\Product::insert([
             [
-                'created_by' => 1,
-                'updated_by' => 1,
                 'category_id' => 1,
                 'name' => 'Smartphone XYZ',
                 'sku' => 'SPH-XYZ-001',
@@ -25,8 +23,6 @@ class ProductSeeder extends Seeder
                 'updated_at' => now()
             ],
             [
-                'created_by' => 1,
-                'updated_by' => 1,
                 'category_id' => 1,
                 'name' => 'Laptop ABC',
                 'sku' => 'LTP-ABC-002',
@@ -36,8 +32,6 @@ class ProductSeeder extends Seeder
                 'updated_at' => now()
             ],
             [
-                'created_by' => 1,
-                'updated_by' => 1,
                 'category_id' => 2,
                 'name' => 'Kaos Polos',
                 'sku' => 'KOS-POL-003',
@@ -47,8 +41,6 @@ class ProductSeeder extends Seeder
                 'updated_at' => now()
             ],
             [
-                'created_by' => 1,
-                'updated_by' => 1,
                 'category_id' => 2,
                 'name' => 'Celana Jeans',
                 'sku' => 'CLN-JNS-004',
@@ -58,8 +50,6 @@ class ProductSeeder extends Seeder
                 'updated_at' => now()
             ],
             [
-                'created_by' => 1,
-                'updated_by' => 1,
                 'category_id' => 4,
                 'name' => 'Lipstik Merah',
                 'sku' => 'LPS-MRH-005',
@@ -69,8 +59,6 @@ class ProductSeeder extends Seeder
                 'updated_at' => now()
             ],
             [
-                'created_by' => 1,
-                'updated_by' => 1,
                 'category_id' => 4,
                 'name' => 'Parfum Wanita',
                 'sku' => 'PRF-WNT-006',
@@ -80,8 +68,6 @@ class ProductSeeder extends Seeder
                 'updated_at' => now()
             ],
             [
-                'created_by' => 1,
-                'updated_by' => 1,
                 'category_id' => 5,
                 'name' => 'Meja Kayu',
                 'sku' => 'MJA-KYW-007',
@@ -91,8 +77,6 @@ class ProductSeeder extends Seeder
                 'updated_at' => now()
             ],
             [
-                'created_by' => 1,
-                'updated_by' => 1,
                 'category_id' => 5,
                 'name' => 'Kursi Lipat',
                 'sku' => 'KRS-LPT-008',
@@ -102,8 +86,6 @@ class ProductSeeder extends Seeder
                 'updated_at' => now()
             ],
             [
-                'created_by' => 1,
-                'updated_by' => 1,
                 'category_id' => 6,
                 'name' => 'Sepeda Gunung',
                 'sku' => 'SPD-GNT-009',
@@ -113,8 +95,6 @@ class ProductSeeder extends Seeder
                 'updated_at' => now()
             ],
             [
-                'created_by' => 1,
-                'updated_by' => 1,
                 'category_id' => 6,
                 'name' => 'Tenda Camping',
                 'sku' => 'TND-CMP-010',
