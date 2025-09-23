@@ -9,4 +9,19 @@ class Category extends Model
 {
     /** @use HasFactory<\Database\Factories\CategoryFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'deleted_at' => 'datetime',
+    ];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }
