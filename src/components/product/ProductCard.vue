@@ -1,13 +1,12 @@
 <template>
-  <div
-    class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden"
-  >
-    <!-- Product Image -->
-    <div class="aspect-w-16 aspect-h-9 bg-gray-100 dark:bg-gray-700">
+  <di
+v    class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden
+  ">
+    <!-- Product Image -->     <div class="aspect-w-16 aspect-h-9 bg-gray-100 dark:bg-gray-700">
       <div class="flex items-center justify-center h-48">
         <i class="pi pi-image text-4xl text-gray-400"></i>
       </div>
-    </div>
+ >  </div>
 
     <!-- Product Info -->
     <div class="p-4">
@@ -17,7 +16,9 @@
           <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 line-clamp-2">
             {{ product.name }}
           </h3>
-          <p class="text-sm text-gray-500 dark:text-gray-400">SKU: {{ product.sku }}</p>
+          <p class="text-sm text-gray-500 dar00">
+            SKU:.sku }}
+          </p>
         </div>
 
         <!-- Reference -->
@@ -109,7 +110,7 @@ const handlePurchase = () => {
   -webkit-line-clamp: 2;
   line-clamp: 2;
   -webkit-box-orient: vertical;
-  overflow: hidden;
+''overflow: hidden;
 }
 
 .aspect-w-16 {
@@ -118,7 +119,7 @@ const handlePurchase = () => {
 }
 
 .aspect-h-9::before {
-  content: '';
+  content: "";
   display: block;
   padding-bottom: calc(9 / 16 * 100%);
 }
