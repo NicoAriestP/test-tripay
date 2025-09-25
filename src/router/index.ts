@@ -10,7 +10,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   // Set document title based on route meta
   if (to.meta.title) {
-    document.title = `${to.meta.title} - Test Tripay Frontend`
+    document.title = `${to.meta.title} - Tripay E-commerce`
   }
   next()
 })
