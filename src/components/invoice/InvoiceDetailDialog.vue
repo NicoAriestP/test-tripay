@@ -203,38 +203,3 @@ const handleClose = () => {
     </template>
   </Dialog>
 </template>
-
-<script setup lang="ts">
-import { computed } from 'vue'
-import { useInvoices } from '@/apis'
-import type { Invoice } from '@/types/InvoiceType'
-
-import Dialog from 'primevue/dialog'
-import Button from 'primevue/button'
-
-interface InvoiceDetailDialogProps {
-  visible: boolean
-  invoice: Invoice | null
-}
-
-interface InvoiceDetailDialogEmits {
-  (e: 'update:visible', value: boolean): void
-  (e: 'close'): void
-}
-
-const props = defineProps<InvoiceDetailDialogProps>()
-const emit = defineEmits<InvoiceDetailDialogEmits>()
-
-const { formatCurrency, formatDate } = useInvoices()
-
-// Computed
-const isVisible = computed({
-  get: () => props.visible,
-  set: (value: boolean) => emit('update:visible', value),
-})
-
-// Methods
-const handleClose = () => {
-  emit('close')
-}
-</script>
