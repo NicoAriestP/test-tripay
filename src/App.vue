@@ -25,11 +25,11 @@ const menuItems = ref([
 </script>
 
 <template>
-  <div id="app" class="flex gap-4 min-h-screen">
+  <div id="app" class="flex min-h-screen">
     <!-- Sidebar -->
-    <div class="w-64">
+    <div class="w-64 bg-blue-600 dark:bg-neutral-900 shadow-lg">
       <div class="p-4">
-        <h1 class="text-xl text-center font-bold mb-6">Tripay E-commerce</h1>
+        <h1 class="text-xl text-center font-bold text-neutral-200  mb-6">Tripay E-commerce</h1>
         <Menu :model="menuItems" class="w-full" />
       </div>
     </div>

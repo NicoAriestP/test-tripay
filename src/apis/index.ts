@@ -4,8 +4,8 @@ import type { ProductFormData } from '@/types/ProductType'
 export function useProducts() {
   const API_PATH = '/api/products'
 
-  async function listProducts() {
-    return await axios.get(API_PATH, { params: { search: '' } })
+  async function listProducts(params: { search?: string } = {}) {
+    return await axios.get(API_PATH, { params })
   }
 
   async function createProduct(data: ProductFormData) {
