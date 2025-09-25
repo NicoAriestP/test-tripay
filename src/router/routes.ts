@@ -2,7 +2,7 @@ import type { RouteRecordRaw } from 'vue-router'
 
 const HomePage = () => import('@/pages/HomePage.vue')
 const InvoiceList = () => import('@/pages/InvoiceList.vue')
-const ProductList = () => import('@/pages/ProductList.vue')
+const ProductManagement = () => import('@/pages/ProductManagement.vue')
 
 /**
  * Application routes configuration
@@ -29,11 +29,11 @@ export const routes: RouteRecordRaw[] = [
   },
   {
     path: '/products',
-    name: 'ProductList',
-    component: ProductList,
+    name: 'ProductManagement',
+    component: ProductManagement,
     meta: {
-      title: 'Products',
-      description: 'List of products',
+      title: 'Produk',
+      description: 'Halaman manajemen produk',
     },
   },
   // Catch-all route for 404 pages
