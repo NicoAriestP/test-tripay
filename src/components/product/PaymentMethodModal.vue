@@ -137,16 +137,13 @@ const handleCreateTransaction = async () => {
 
   creating.value = true
   try {
-    // Calculate total amount with fees
-    const feeCalculation = calculateFee(selectedChannel.value)
-
     // Use product reference as merchant reference
     const merchantRef = props.product.reference
 
     const requestData: TransactionFormData = {
       method: selectedChannel.value.code,
       merchant_ref: merchantRef,
-      amount: feeCalculation.totalAmount,
+      amount: props.product.price,
       customer_name: customerForm.value.name,
       customer_email: customerForm.value.email,
       customer_phone: customerForm.value.phone,
