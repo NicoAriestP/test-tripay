@@ -60,6 +60,13 @@ class TransactionController extends Controller
             'Authorization' => 'Bearer ' . $this->tripayAPIKey,
         ])->post($this->tripayAPISandboxUrl . '/transaction/create', $payload);
 
+        if (! $response->successful()) {
+            return response()->json([
+                'message' => 'Failed to create transaction',
+                'details' => $response->json(),
+            ], $response->status());
+        }
+
         $transactionData = $response->json();
 
         $invoiceData = [
