@@ -29,7 +29,7 @@ const menuItems = ref([
     <!-- Sidebar -->
     <div class="w-64 bg-blue-600 dark:bg-neutral-900 shadow-lg">
       <div class="p-4">
-        <h1 class="text-xl text-center font-bold text-neutral-200  mb-6">Tripay E-commerce</h1>
+        <h1 class="text-xl text-center font-bold text-neutral-200 mb-6">Tripay E-Commerce</h1>
         <Menu :model="menuItems" class="w-full" />
       </div>
     </div>
