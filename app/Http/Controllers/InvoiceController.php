@@ -11,6 +11,8 @@ class InvoiceController extends Controller
     {
         $invoices = Invoice::with('product')->get();
 
-        return response()->json($invoices, 200);
+        return response()->json([
+            'data' => $invoices,
+        ], 200);
     }
 }
