@@ -7,6 +7,7 @@ import type {
   GroupedPaymentChannels,
   PaymentChannel,
 } from '@/types/TransactionType'
+import type { InvoiceListResponse } from '@/types/InvoiceType'
 
 export function useProducts() {
   const API_PATH = '/api/products'
@@ -119,5 +120,40 @@ export function useTransactions() {
     groupPaymentChannels,
     formatCurrency,
     calculateTotalAmount,
+  }
+}
+
+export function useInvoices() {
+  const API_PATH = '/api/invoices'
+
+  async function listInvoices(params: { search?: string } = {}): Promise<InvoiceListResponse> {
+    const response = await axios.get(API_PATH, { params })
+    return response.data
+  }
+
+  // Helper function untuk format currency
+  function formatCurrency(amount: number): string {
+    return new Intl.NumberFormat('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
+      minimumFractionDigits: 0,
+    }).format(amount)
+  }
+
+  // Helper function untuk format date
+  function formatDate(dateString: string): string {
+    return new Intl.DateTimeFormat('id-ID', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    }).format(new Date(dateString))
+  }
+
+  return {
+    listInvoices,
+    formatCurrency,
+    formatDate,
   }
 }
