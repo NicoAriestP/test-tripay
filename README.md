@@ -65,7 +65,7 @@ DB_USERNAME=root
 DB_PASSWORD=
 
 # Tripay Configuration (Wajib diisi dengan kredensial Tripay Anda)
-TRIPAY_API_SANDBOX_URL=https://tripay.co.id/api-sandbox
+TRIPAY_API_SANDBOX_URL=tripay_api_url
 TRIPAY_API_KEY=your_tripay_api_key
 TRIPAY_PRIVATE_KEY=your_tripay_private_key
 TRIPAY_MERCHANT_CODE=your_merchant_code
