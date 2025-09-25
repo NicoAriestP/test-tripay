@@ -62,7 +62,7 @@ class TransactionController extends Controller
 
         if (! $response->successful()) {
             return response()->json([
-                'message' => 'Failed to create transaction',
+                'message' => 'Error requesting transaction from tripay',
                 'details' => $response->json(),
             ], $response->status());
         }
@@ -77,7 +77,7 @@ class TransactionController extends Controller
             'raw_response' => $transactionData,
         ];
 
-        if ($response->successful()) {
+        if ($transactionData) {
             $invoiceAction->create($invoiceData);
 
             return response()->json($transactionData, 200);
