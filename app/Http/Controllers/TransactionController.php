@@ -64,6 +64,7 @@ class TransactionController extends Controller
             return response()->json([
                 'message' => 'Error requesting transaction from tripay',
                 'details' => $response->json(),
+                'error' => $response->body(),
             ], $response->status());
         }
 
