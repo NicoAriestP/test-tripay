@@ -31,7 +31,6 @@ const loadInvoices = async () => {
 
     console.log('API Response:', response)
 
-    // API langsung mengembalikan array invoice, bukan objek dengan success/data
     if (Array.isArray(response)) {
       invoices.value = response
     } else if (response && response.data && Array.isArray(response.data)) {
