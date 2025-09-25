@@ -1,3 +1,70 @@
+<script setup lang="ts">
+import { ref, computed } from 'vue'
+import Dialog from 'primevue/dialog'
+import Button from 'primevue/button'
+
+interface DeleteConfirmModalProps {
+  visible: boolean
+  productName: string
+  productId: number | null
+}
+
+interface DeleteConfirmModalEmits {
+  (e: 'update:visible', value: boolean): void
+  (e: 'confirm', productId: number): void
+  (e: 'cancel'): void
+}
+
+const props = defineProps<DeleteConfirmModalProps>()
+const emit = defineEmits<DeleteConfirmModalEmits>()
+
+// State
+const isDeleting = ref(false)
+
+// Computed
+const isVisible = computed({
+  get: () => props.visible,
+  set: (value: boolean) => emit('update:visible', value),
+})
+
+// Methods
+const handleCancel = (closeCallback?: () => void) => {
+  if (isDeleting.value) return
+
+  if (closeCallback) {
+    closeCallback()
+  } else {
+    isVisible.value = false
+  }
+  emit('cancel')
+}
+
+const handleConfirm = async () => {
+  if (isDeleting.value || !props.productId) return
+
+  isDeleting.value = true
+
+  try {
+    emit('confirm', props.productId)
+  } catch (error) {
+    console.error('Error in delete confirmation:', error)
+  } finally {
+    // Note: isDeleting akan di-reset oleh parent component
+    // setelah operasi delete selesai
+  }
+}
+
+// Reset deleting state when modal is closed
+const resetState = () => {
+  isDeleting.value = false
+}
+
+// Expose reset method for parent component
+defineExpose({
+  resetState,
+})
+</script>
+
 <template>
   <Dialog
     v-model:visible="isVisible"

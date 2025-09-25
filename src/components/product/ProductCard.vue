@@ -1,3 +1,50 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import type { Product } from '@/types/ProductType'
+import Button from 'primevue/button'
+
+interface ProductCardProps {
+  product: Product
+}
+
+interface ProductCardEmits {
+  (e: 'purchase', product: Product): void
+}
+
+const props = defineProps<ProductCardProps>()
+const emit = defineEmits<ProductCardEmits>()
+
+// State
+const purchasing = ref(false)
+
+// Methods
+const formatCurrency = (amount: number): string => {
+  return new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    minimumFractionDigits: 0,
+  }).format(amount)
+}
+
+const formatDate = (dateString: string): string => {
+  return new Intl.DateTimeFormat('id-ID', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+  }).format(new Date(dateString))
+}
+
+const handlePurchase = () => {
+  purchasing.value = true
+  emit('purchase', props.product)
+
+  // Reset purchasing state after a short delay to provide visual feedback
+  setTimeout(() => {
+    purchasing.value = false
+  }, 500)
+}
+</script>
+
 <template>
   <div
     class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden"
